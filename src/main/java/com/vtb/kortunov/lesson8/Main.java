@@ -54,11 +54,8 @@ public class Main {
 
     //Task 3
     public static int getSumEvenNumbers() {
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        for (int i = 100; i <= 200; i++) {
-            arrayList.add(i);
-        }
-        return arrayList.stream()
+        return Stream.iterate(100, n -> n + 1)
+                .limit(101)
                 .filter(n -> n % 2 == 0)
                 .reduce(0, Integer::sum);
     }
